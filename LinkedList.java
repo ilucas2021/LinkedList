@@ -32,8 +32,30 @@ public class LinkedList<T> {
 	return find(element) >= 0;
     }
     //FOR HOMEWORK - add (append) - cases: size = 0, size != 03
-    public void add(T element) { } //append
-    public void add(int index, T element) {}
+    public void add(T element) {
+	    Node<T> curr = head;
+	    Node<T> newElt = new Node<T> (element);
+	    if (size == 0) { head = newElt; size++; return;}
+	    while (curr.getNext() != null) {curr = curr. getNext();}
+	    curr.setNext(newElt);
+	    size++;
+	    return;
+    } //append
+    public void add(int index, T element) {
+	    assert(index <= size);
+	    Node<T> curr = head;
+	    Node<T> newElt = new Node<T> (element);
+	    if (index = 0) {
+		    newElt.setNext(head);
+		    head = newElt;
+		    size++;
+	    }
+	    for (int i = -; i <index -1; i++) { curr = curr.getNext()}
+	    newElt.setNext(curr.getNext());
+	    curr.setNext(newElt);
+	    size++;
+	    return;
+    }
     public boolean remove(T element) { return false; }
     public int find(T element) {
 	Node<T> curr = head;
